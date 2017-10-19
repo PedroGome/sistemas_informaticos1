@@ -3,21 +3,27 @@
 #define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
 #include <stdlib.h>
+// DECLARACIONES DE FUNCIONES
 
+int menu();                              // declaración de la función "menu"
+int desplazar( int n, int nPos);         // declaración de desplazar
+
+
+/******** MAIN ********/
 int main (){
-  // DEFINICIONES DE VARIABLES
-  int opcion; // opción elegida del menú
+/******** DEFINICIONES DE VARIABLES *********/
+  int opcion;                                // opción elegida del menú
 
   printf ("PRÁCTICA 2\n");
   printf ("==========\n");
 
-  opcion = menu(); // llama/invoca a la función "menu"
+  opcion = menu();                           // llama/invoca a la función "menu"
 
-  while (opcion != 10){ // sentencia repetitiva
-    switch (opcion) // sentencia condicional
+  while (opcion != 10){                      // sentencia repetitiva
+    switch (opcion)                          // sentencia condicional
       {
       case 1:
-        printf("Ejercicio 1: desplazar\n"); // llama a la función "printf"
+        printf("Ejercicio 1: desplazar\n");  // llama a la función "printf"
         int n;
         int nPos;
         printf("Introduzca numero a desplazar: ");
@@ -67,10 +73,6 @@ int main (){
     opcion = menu(); // llamar a la función "menu"
   }
 }
-// DECLARACIONES DE FUNCIONES
-
-int menu(); // declaración de la función "menu"
-
 // DEFINICIONES DE FUNCIONES
 int menu() // definición de la función "menu"
 {
