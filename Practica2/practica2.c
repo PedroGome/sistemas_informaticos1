@@ -4,14 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// DECLARACIONES DE FUNCIONES
-
-int menu(); // declaración de la función "menu"
-
 int main (){
-
   // DEFINICIONES DE VARIABLES
-
   int opcion; // opción elegida del menú
 
   printf ("PRÁCTICA 2\n");
@@ -24,7 +18,14 @@ int main (){
       {
       case 1:
         printf("Ejercicio 1: desplazar\n"); // llama a la función "printf"
-        // Llamar a la función "desplazar"
+        int n;
+        int nPos;
+        printf("Introduzca numero a desplazar: ");
+        scanf("%d",&n);
+        printf("\n");
+        printf("Introduzca desplazamiento: ");
+        scanf("%d",&nPos);
+        printf("Numero despues del desplazamiento %d\n",desplazar( n , nPos ));// Llamar a la función "desplazar"
         break;
       case 2:
         printf("Ejercicio 2: par o impar\n");
@@ -62,17 +63,21 @@ int main (){
         printf ("ERROR: Opcion incorrecta.\n");
         break;
       }
-    system("pause"); // llamar a la función "system"
+    /* system("pause"); // llamar a la función "system" */
     opcion = menu(); // llamar a la función "menu"
   }
 }
+// DECLARACIONES DE FUNCIONES
+
+int menu(); // declaración de la función "menu"
+
 // DEFINICIONES DE FUNCIONES
 int menu() // definición de la función "menu"
 {
   int op;
   do // sentencia repetitiva
     {
-      system("cls");
+      /* system("cls"); */
       printf ("\n"
               "\t01.- Ejercicio 1\n"
               "\t02.- Ejercicio 2\n"
@@ -89,11 +94,18 @@ int menu() // definición de la función "menu"
       scanf ("%d", &op); // llamar a la función "scanf"
       if (op < 1 || op > 10) // sentencia condicional
         {
-          // printf("Opción no válida\n");
-          printf("Opci%cn no v%clida\n", 0xA2, 0xA0);
-          system("pause"); // detenerse hasta pulsar una tecla
+          printf("Opción no válida\n");
+          /* printf("Opci%cn no v%clida\n", 0xA2, 0xA0); */
+          /* system("pause"); // detenerse hasta pulsar una tecla */
         }
     }
   while (op < 1 || op > 10); // condición
   return op;
 }
+
+int desplazar(int n, int nPos){
+  int nDesplazado;
+  nDesplazado = nPos + n;
+  return nDesplazado;
+}
+
