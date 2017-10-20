@@ -3,11 +3,14 @@
 #define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
 #include <stdlib.h>
+
 // DECLARACIONES DE FUNCIONES
 
 int menu();                              // declaración de la función "menu"
-int desplazar( int n, int nPos);         // declaración de desplazar
-
+int desplazar( int , int );         // declaración de desplazar
+int parImpar (int);
+void pause();
+void clear();
 
 /******** MAIN ********/
 int main (){
@@ -35,7 +38,17 @@ int main (){
         break;
       case 2:
         printf("Ejercicio 2: par o impar\n");
+        int num;
+        printf("Introduzca numero para diferenciar entre par o impar: ");
+        scanf("%d",&num);
+        printf("\n");
         // Llamar a la función "parImpar"
+        if ( 0 == parImpar(num)){
+          printf("Numero par\n");
+        }
+        else{
+          printf("Numero impar\n");
+        }
         break;
       case 3:
         printf("Ejercicio 3: operaciones lógicas y a nivel de bits\n");
@@ -69,7 +82,7 @@ int main (){
         printf ("ERROR: Opcion incorrecta.\n");
         break;
       }
-    /* system("pause"); // llamar a la función "system" */
+    pause();
     opcion = menu(); // llamar a la función "menu"
   }
 }
@@ -79,8 +92,8 @@ int menu() // definición de la función "menu"
   int op;
   do // sentencia repetitiva
     {
-      /* system("cls"); */
-      printf ("\n"
+      clear();
+            printf ("\n"
               "\t01.- Ejercicio 1\n"
               "\t02.- Ejercicio 2\n"
               "\t03.- Ejercicio 3\n"
@@ -98,7 +111,7 @@ int menu() // definición de la función "menu"
         {
           printf("Opción no válida\n");
           /* printf("Opci%cn no v%clida\n", 0xA2, 0xA0); */
-          /* system("pause"); // detenerse hasta pulsar una tecla */
+          pause();
         }
     }
   while (op < 1 || op > 10); // condición
@@ -111,3 +124,24 @@ int desplazar(int n, int nPos){
   return nDesplazado;
 }
 
+int parImpar(int num){
+  num = num % 2;
+  if ( num != 0 ){
+    return 1;
+  }
+  else{
+    return 0;
+  }
+}
+
+void pause(){
+  system("read -n1 -r -p \"Press any key to continue...\" key"); // Comenta esta linea si usas windows
+  //    system("pause"); // Quita el comentario si estas en windows
+
+}
+
+void clear(){
+  system("clear"); //Comenta esta line si usas windows
+  //      system("cls"); // Quita el comentario si usas windows
+
+}
