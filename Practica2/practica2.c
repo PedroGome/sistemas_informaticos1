@@ -6,8 +6,8 @@
 
 // DECLARACIONES DE FUNCIONES
 
-int menu();                              // declaración de la función "menu"
-int desplazar( int , int );         // declaración de desplazar
+int menu();                                  // declaración de la función "menu"
+int desplazar( int , int );                  // declaración de desplazar
 int parImpar (int);
 void pause();
 void clear();
