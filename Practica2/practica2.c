@@ -9,6 +9,8 @@
 int menu();                                  // declaración de la función "menu"
 int desplazar( int , int );                  // declaración de desplazar
 int parImpar (int);
+void operacionesLogicasBits();
+
 void pause();
 void clear();
 
@@ -53,6 +55,7 @@ int main (){
       case 3:
         printf("Ejercicio 3: operaciones lógicas y a nivel de bits\n");
         // Llamar a la función "operacionesLogicasBits"
+        operacionesLogicasBits();
         break;
       case 4:
         printf("Ejercicio 4: poner a cero un bit\n");
@@ -134,6 +137,24 @@ int parImpar(int num){
   }
 }
 
+void operacionesLogicasBits(){
+  int a=8, b=0, c=15, d=93, e, r1, r2, r3, r4, r5, r6;
+
+  r1 = a && b || c && !d;
+  r2 = !a || b && c || d;
+  r3 = a < b || !c > d;
+  r4 = a + b > d-c;
+  r5 = r4 & ~077;
+
+  a = 0x12; b=0x56; c=0x9a; d=0x0f; e=0360;
+
+  r1 = a & b | c;
+  r2 = c & 0177;
+  r3 = ~a | b ^ c;
+  r4 = e & c;
+  r5 = r4 & ~077;
+  r6 = (a & d) << 4 | (a & e) >> 4;
+}
 void pause(){
   system("read -n1 -r -p \"Press any key to continue...\" key"); // Comenta esta linea si usas windows
   //    system("pause"); // Quita el comentario si estas en windows
