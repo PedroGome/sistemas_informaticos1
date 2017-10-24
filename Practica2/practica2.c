@@ -10,6 +10,7 @@ int menu();                                  // declaración de la función "men
 int desplazar( int , int );                  // declaración de desplazar
 int parImpar (int);
 void operacionesLogicasBits();
+int ponerACeroBit( int, int );
 
 void pause();
 void clear();
@@ -27,7 +28,7 @@ int main (){
   while (opcion != 10){                      // sentencia repetitiva
     switch (opcion)                          // sentencia condicional
       {
-      case 1:
+      case 1:{
         printf("Ejercicio 1: desplazar\n");  // llama a la función "printf"
         int n;
         int nPos;
@@ -37,8 +38,8 @@ int main (){
         printf("Introduzca desplazamiento: ");
         scanf("%d",&nPos);
         printf("Numero despues del desplazamiento %d\n",desplazar( n , nPos ));// Llamar a la función "desplazar"
-        break;
-      case 2:
+        break;}
+      case 2:{
         printf("Ejercicio 2: par o impar\n");
         int num;
         printf("Introduzca numero para diferenciar entre par o impar: ");
@@ -51,36 +52,46 @@ int main (){
         else{
           printf("Numero impar\n");
         }
-        break;
-      case 3:
+        break;}
+      case 3:{
         printf("Ejercicio 3: operaciones lógicas y a nivel de bits\n");
         // Llamar a la función "operacionesLogicasBits"
         operacionesLogicasBits();
-        break;
-      case 4:
+        break;}
+      case 4:{
         printf("Ejercicio 4: poner a cero un bit\n");
         // Llamar a la función "ponerACeroBit"
+        int n;
+        int nPos;
+        printf("Introduzca el valor hexadecimal de 8 bits de el numero a cambiar: ");
+        scanf("%x",&n);
+        printf("\n");
+        printf("Introduzca el valor de la posicion del bit a cambiar a 0: ");
+        scanf("%d",&nPos);
+        printf("\n");
+        ponerACeroBit(n,nPos);
         break;
-      case 5:
+      }
+      case 5:{
         printf("Ejercicio 5: factorial\n");
         // Llamar a la función "factorial"
-        break;
-      case 6:
+        break;}
+      case 6:{
         printf("Ejercicio 6: numero de bits\n");
         // Llamar a la función "numeroBits"
-        break;
-      case 7:
+        break;}
+      case 7:{
         printf("Ejercicio 7: cambiar bits\n");
         // Llamar a la función "cambiarBits"
-        break;
-      case 8:
+        break;}
+      case 8:{
         printf("Ejercicio 8: intercambiar\n");
         // Llamar a la función "intercambiar"
-        break;
-      case 9:
+        break;}
+      case 9:{
         printf("Ejercicio 9: media aritmetica\n");
         // Llamar a la función "mediaAritmetica"
-        break;
+        break;}
       default:
         printf ("ERROR: Opcion incorrecta.\n");
         break;
@@ -146,6 +157,8 @@ void operacionesLogicasBits(){
   r4 = a + b > d-c;
   r5 = r4 & ~077;
 
+  printf("\nvalores en hexadecimal de todos los numeros %x %x %x %x %x",r1,r2,r3,r4,r5);
+
   a = 0x12; b=0x56; c=0x9a; d=0x0f; e=0360;
 
   r1 = a & b | c;
@@ -154,7 +167,16 @@ void operacionesLogicasBits(){
   r4 = e & c;
   r5 = r4 & ~077;
   r6 = (a & d) << 4 | (a & e) >> 4;
+  printf("\nvalores en hexadecimal de todos los numeros %x %x %x %x %x %x",r1,r2,r3,r4,r5,r6);
 }
+
+int ponerACeroBit( int n , int nPos){
+  n = n & (~(1 << nPos));
+  return n;
+}
+
+
+/* Pause and clear functions */
 void pause(){
   system("read -n1 -r -p \"Press any key to continue...\" key"); // Comenta esta linea si usas windows
   //    system("pause"); // Quita el comentario si estas en windows
