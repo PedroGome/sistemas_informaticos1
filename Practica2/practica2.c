@@ -13,6 +13,7 @@ void operacionesLogicasBits();
 int ponerACeroBit( int, int );
 long factorial(int);
 int numeroBits(int);
+int cambiarBits(int, int, int);
 
 void pause();
 void clear();
@@ -101,8 +102,29 @@ int main (){
         printf("\n");
         break;}
       case 7:{
+        int o,n,p;
+        do{
         printf("Ejercicio 7: cambiar bits\n");
+        printf("\nIntroduzca un numero entero a cambiar: ");
+        scanf("%d",&o);
+        if ( o < 0 ){
+          printf("\nNumero invalido\n");
+        }
+        }
+        while ( o < 0 );
+        printf("\nIntroduzca Posicion del bit inicial a invertir: ");
+        scanf("%d",&p);
+        printf("\nNumero de bits a invertir: ");
+        scanf("%d",&n);
         // Llamar a la función "cambiarBits"
+        o = cambiarBits(o,n,p);
+        if( o == -1){
+          printf("\nHa ocurrido un error");
+        }
+        else{
+          printf("El valor de el nuevo numero es: %d",o);
+        }
+        printf("\n");
         break;}
       case 8:{
         printf("Ejercicio 8: intercambiar\n");
@@ -224,6 +246,17 @@ int numeroBits(int n){
   return nbits;
 }
 
+int cambiarBits(int o, int n, int p){
+  if (o < (p+n)){
+    return -1;
+  }
+  else{
+    int mask = 0;
+    mask = (~mask >> n) << p;
+    o = o ^ mask;
+    return o;
+  }
+}
 /* Pause and clear functions */
 void pause(){
   system("read -n1 -r -p \"Press any key to continue...\" key"); // Comenta esta linea si usas windows
