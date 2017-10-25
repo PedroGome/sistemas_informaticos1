@@ -15,6 +15,7 @@ long factorial(int);
 int numeroBits(int);
 int cambiarBits(int, int, int);
 void intercambiar(double * , double *);
+double mediaAritmerica(double, double, double, double);
 
 void pause();
 void clear();
@@ -144,6 +145,20 @@ int main (){
       case 9:{
         printf("Ejercicio 9: media aritmetica\n");
         // Llamar a la función "mediaAritmetica"
+        double a=0 , b=0 , c=0 , d=0;
+        printf("Introduzca Numero 1: ");
+        scanf("%lf",&a);
+        printf("Introduzca Numero 2: ");
+        scanf("%lf",&b);
+        printf("Introduzca Numero 3: ");
+        scanf("%lf",&c);
+        printf("Introduzca Numero 4: ");
+        scanf("%lf",&d);
+
+        a = mediaAritmerica( a , b , c , d);
+
+        printf("La media de los cuatro numeros es: %g",a);
+        printf("\n");
         break;}
       default:
         printf ("ERROR: Opcion incorrecta.\n");
@@ -275,6 +290,11 @@ void intercambiar(double *a, double *b){
   c = *a;
   a = b;
   b = &c;
+}
+
+double mediaAritmerica(double a, double b, double c, double d){
+  a = (a+b+c+d)/4;
+  return a;
 }
 
 /* Pause and clear functions */
