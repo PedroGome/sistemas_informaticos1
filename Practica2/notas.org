@@ -1,3 +1,37 @@
-* Github mario
+* Contenidos
+Aqui esta el codigo fuente de la practica2, actualmente se puede usar el linux, para compatibilidad con Windows hay que cambiar los comentarios en las funciones de las ultimas lineas
 
-sirm15
+Este:
+#+BEGIN_SRC c
+/* Pause and clear functions */
+void pause(){
+  system("read -n1 -r -p \"Press any key to continue...\" key"); // Comenta esta linea si usas windows
+  //    system("pause"); // Quita el comentario si estas en windows
+
+}
+
+void clear(){
+  system("clear"); //Comenta esta line si usas windows
+  //      system("cls"); // Quita el comentario si usas windows
+
+}
+#+END_SRC
+a este codigo:
+#+BEGIN_SRC c
+/* Pause and clear functions */
+void pause(){
+  //    system("read -n1 -r -p \"Press any key to continue...\" key"); // Comenta esta linea si usas windows
+  system("pause"); // Quita el comentario si estas en windows
+
+}
+
+void clear(){
+  //      system("clear"); //Comenta esta line si usas windows
+  system("cls"); // Quita el comentario si usas windows
+
+}
+#+END_SRC
+* To do List
+** TODO Ejercicio 7 arreglar valores
+** TODO Ejercicio 9 punteros
+** TODO Ejercicios 10 y extra
