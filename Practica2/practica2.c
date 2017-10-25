@@ -12,6 +12,7 @@ int parImpar (int);
 void operacionesLogicasBits();
 int ponerACeroBit( int, int );
 long factorial(int);
+int numeroBits(int);
 
 void pause();
 void clear();
@@ -91,8 +92,13 @@ int main (){
         printf("\n");
         break;}
       case 6:{
+        int n=0;
         printf("Ejercicio 6: numero de bits\n");
+        printf("\n Introduzca un numero entero positivo: ");
+        scanf("%d",&n);
         // Llamar a la función "numeroBits"
+        printf("El numero de bits minimo para representar %d es: %d",n, numeroBits(n) );
+        printf("\n");
         break;}
       case 7:{
         printf("Ejercicio 7: cambiar bits\n");
@@ -201,6 +207,21 @@ long factorial(int n){
     while(n != 1);
   }
   return factorial;
+}
+
+int numeroBits(int n){
+  int dosElevadoN = 2, nbits = 1; // 2^1 = 2
+  int exponent = 1;
+  while(dosElevadoN <= n){
+    dosElevadoN = 2;
+    while(exponent !=0){
+      dosElevadoN *= 2;
+      exponent --;
+    }
+    nbits ++;
+    exponent = nbits;
+  }
+  return nbits;
 }
 
 /* Pause and clear functions */
