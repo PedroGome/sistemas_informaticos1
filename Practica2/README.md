@@ -15,7 +15,7 @@
 Aqui esta el codigo fuente de la practica2, actualmente se puede usar el linux, para compatibilidad con Windows hay que cambiar los comentarios en las funciones de las ultimas lineas
 
 Este:
-
+```c
     /* Pause and clear functions */
     void pause(){
       system("read -n1 -r -p \"Press any key to continue...\" key"); // Comenta esta linea si usas windows
@@ -28,8 +28,11 @@ Este:
       //      system("cls"); // Quita el comentario si usas windows
     
     }
+```
 
 a este codigo:
+
+```c
 
     /* Pause and clear functions */
     void pause(){
@@ -43,6 +46,7 @@ a este codigo:
       system("cls"); // Quita el comentario si usas windows
     
     }
+```
 
 
 <a id="org729ed86"></a>
