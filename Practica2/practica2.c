@@ -14,7 +14,7 @@ int ponerACeroBit( int, int );
 long factorial(int);
 int numeroBits(int);
 int cambiarBits(int, int, int);
-void intercambiar(double , double );
+void intercambiar(double * , double *);
 
 void pause();
 void clear();
@@ -130,15 +130,15 @@ int main (){
       case 8:{
         printf("Ejercicio 8: intercambiar\n");
         // Llamar a la función "intercambiar"
-        double a = 0;
-        double b = 0;
+        double *a = 0;
+        double *b = 0;
         printf("Primer valor: ");
-        scanf("%lf",&a);
+        scanf("%lf",a);
         printf("Segundo valor: ");
-        scanf("%lf",&b);
-        intercambiar(a,b);
-        printf("Primer Valor ahora es:  %g",a);
-        printf("\nSegundo Valor ahora es: %g",b);
+        scanf("%lf",b);
+        intercambiar(*a,*b);
+        printf("Primer Valor ahora es:  %g",&a);
+        printf("\nSegundo Valor ahora es: %g",&b);
         printf("\n");
         break;}
       case 9:{
@@ -273,8 +273,8 @@ void intercambiar(double *a, double *b){
   /* Aqui hay que usar los punteros, asignar el contenido de *a a c, el contenido de *b a &a y el contenido de c a &b */
   double c;
   c = *a;
-  &a -> *b;
-  &b = c;
+  a = b;
+  b = &c;
 }
 
 /* Pause and clear functions */
