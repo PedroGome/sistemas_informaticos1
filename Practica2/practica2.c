@@ -1,6 +1,6 @@
 // practica2.c
 
-#define _CRT_SECURE_NO_DEPRECATE
+/* #define _CRT_SECURE_NO_DEPRECATE */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -129,17 +129,17 @@ int main (){
         printf("\n");
         break;}
       case 8:{
-        /* printf("Ejercicio 8: intercambiar\n"); */
-        /* // Llamar a la función "intercambiar" */
-        /* double *a = 0; */
-        /* double *b = 0; */
-        /* printf("Primer valor: "); */
-        /* scanf("%lf",a); */
-        /* printf("Segundo valor: "); */
-        /* scanf("%lf",b); */
-        /* intercambiar(*a,*b); */
-        /* printf("Primer Valor ahora es:  %g",&a); */
-        /* printf("\nSegundo Valor ahora es: %g",&b); */
+        printf("Ejercicio 8: intercambiar\n");
+        // Llamar a la función "intercambiar"
+        double a = 0;
+        double b = 0;
+        printf("Primer valor: ");
+        scanf("%lf",&a);
+        printf("Segundo valor: ");
+        scanf("%lf",&b);
+        intercambiar(&a,&b);
+        printf("Primer Valor ahora es:  %g",a);
+        printf("\nSegundo Valor ahora es: %g",b);
         printf("\n");
         break;}
       case 9:{
@@ -286,10 +286,9 @@ int cambiarBits(int o, int n, int p){
 
 void intercambiar(double *a, double *b){
   /* Aqui hay que usar los punteros, asignar el contenido de *a a c, el contenido de *b a &a y el contenido de c a &b */
-  double c;
-  c = *a;
-  a = b;
-  b = &c;
+  double c = *a;
+  *a = *b;
+  *b = c;
 }
 
 double mediaAritmerica(double a, double b, double c, double d){
