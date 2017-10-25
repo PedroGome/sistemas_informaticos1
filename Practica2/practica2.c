@@ -128,17 +128,17 @@ int main (){
         printf("\n");
         break;}
       case 8:{
-        printf("Ejercicio 8: intercambiar\n");
-        // Llamar a la función "intercambiar"
-        double *a = 0;
-        double *b = 0;
-        printf("Primer valor: ");
-        scanf("%lf",a);
-        printf("Segundo valor: ");
-        scanf("%lf",b);
-        intercambiar(*a,*b);
-        printf("Primer Valor ahora es:  %g",&a);
-        printf("\nSegundo Valor ahora es: %g",&b);
+        /* printf("Ejercicio 8: intercambiar\n"); */
+        /* // Llamar a la función "intercambiar" */
+        /* double *a = 0; */
+        /* double *b = 0; */
+        /* printf("Primer valor: "); */
+        /* scanf("%lf",a); */
+        /* printf("Segundo valor: "); */
+        /* scanf("%lf",b); */
+        /* intercambiar(*a,*b); */
+        /* printf("Primer Valor ahora es:  %g",&a); */
+        /* printf("\nSegundo Valor ahora es: %g",&b); */
         printf("\n");
         break;}
       case 9:{
