@@ -270,6 +270,7 @@ int cambiarBits(int o, int n, int p){
 }
 
 void intercambiar(double *a, double *b){
+  /* Aqui hay que usar los punteros, asignar el contenido de *a a c, el contenido de *b a &a y el contenido de c a &b */
   double c;
   c = *a;
   &a -> *b;
