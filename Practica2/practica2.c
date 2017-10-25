@@ -11,6 +11,7 @@ int desplazar( int , int );                  // declaración de desplazar
 int parImpar (int);
 void operacionesLogicasBits();
 int ponerACeroBit( int, int );
+long factorial(int);
 
 void pause();
 void clear();
@@ -68,13 +69,26 @@ int main (){
         printf("\n");
         printf("Introduzca el valor de la posicion del bit a cambiar a 0: ");
         scanf("%d",&nPos);
+        nPos --;
+        printf("\nEl nuevo valor es 0x%X",ponerACeroBit(n,nPos));
         printf("\n");
-        ponerACeroBit(n,nPos);
         break;
       }
       case 5:{
+        int n=0;
+        long res;
         printf("Ejercicio 5: factorial\n");
+        printf("Introduzca numero para encontrar su factorial: ");
+        scanf("%d",&n);
+        res = factorial(n);
+        if(res == -1){
+          printf("Factorial no puede ser computado");
+        }
+        else{
+          printf("El resultado del factorial es: %ld",res);
+        }
         // Llamar a la función "factorial"
+        printf("\n");
         break;}
       case 6:{
         printf("Ejercicio 6: numero de bits\n");
@@ -175,6 +189,19 @@ int ponerACeroBit( int n , int nPos){
   return n;
 }
 
+long factorial(int n){
+  long factorial = 1;
+  if (n < 0 || n > 16) return -1;
+  else{
+    factorial = n;
+    do{
+      n--;
+      factorial = factorial * n;
+    }
+    while(n != 1);
+  }
+  return factorial;
+}
 
 /* Pause and clear functions */
 void pause(){
