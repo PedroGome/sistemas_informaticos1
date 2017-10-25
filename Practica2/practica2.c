@@ -263,7 +263,7 @@ int cambiarBits(int o, int n, int p){
   }
   else{
     int mask = 0;
-    mask = (~mask >> n) << p;
+    mask = ~(~mask << n) << p;
     o = o ^ mask;
     return o;
   }
