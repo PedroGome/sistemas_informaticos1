@@ -223,9 +223,10 @@ void operacionesLogicasBits(){
   r2 = !a || b && c || d;
   r3 = a < b || !c > d;
   r4 = a + b > d-c;
-  r5 = r4 & ~077;
+  r5 = a && b && !c || !(a && b) && c;
 
-  printf("\nvalores en hexadecimal de todos los numeros %x %x %x %x %x",r1,r2,r3,r4,r5);
+  printf("\nvalores en hexadecimal de todos los numeros \n\tr1 = %x \n\tr2 = %x \n\tr3 = %x \n\tr4 = %x \n\tr5 = %x",r1,r2,r3,r4,r5);
+  printf("\n");
 
   a = 0x12; b=0x56; c=0x9a; d=0x0f; e=0360;
 
@@ -236,6 +237,7 @@ void operacionesLogicasBits(){
   r5 = r4 & ~077;
   r6 = (a & d) << 4 | (a & e) >> 4;
   printf("\nvalores en hexadecimal de todos los numeros %x %x %x %x %x %x",r1,r2,r3,r4,r5,r6);
+  printf("\n");
 }
 
 int ponerACeroBit( int n , int nPos){
