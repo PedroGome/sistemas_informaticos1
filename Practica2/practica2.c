@@ -250,11 +250,10 @@ long factorial(int n){
   if (n < 0 || n > 16) return -1;
   else{
     factorial = n;
-    do{
+    while(n != 1){
       n--;
-      factorial = factorial * n;
+      factorial *= n;
     }
-    while(n != 1);
   }
   return factorial;
 }
