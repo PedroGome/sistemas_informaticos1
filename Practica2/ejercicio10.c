@@ -7,7 +7,7 @@ int main(){
   printf("Constantes y variables de tipo caracter\n");
 
   car1 = 0x35 + 96 - ' ';                         /* (a) */
-  car2 = "z";                                     /* (b) */
+  car2 = 'z';                                     /* (b) */
 
   printf("\nEjemplo 1:\n");                       /* (c) */
   printf("Caracteres:\t%c\t%c\n",car1,car2);
