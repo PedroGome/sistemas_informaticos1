@@ -29,9 +29,9 @@ double power(int bas, int exponent){
 /* Fin funcion exponente */
 
 /* Funcion factorial */
-long factorial(int);
+double factorial(int);
 
-long factorial(int num){
+double factorial(int num){
   int i;
   long result;
   result = num;

@@ -18,6 +18,15 @@ int main(){
 
     printf("Valor del numero: %g\n",power(base,exponent));
   }
+  case 2:{
+    int fac=0;
+    printf("Introduzca factorial: ");
+    scanf("%d",&fac);
+
+    printf("Valor del numero: %g\n", factorial(fac));
+  }
+  case 3:{
+  }
   }
 }
 
