@@ -1,12 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<strings.h>
 #include"funciones.h"
 
 void menu(int*);
 
 int main(){
   int option;
-  printf("Seleccione opción");
+  printf("Seleccione opción\n");
   menu(&option);
   switch (option){
   case 1:{
@@ -20,10 +21,17 @@ int main(){
   }
   case 2:{
     int fac=0;
+    double result=0;
     printf("Introduzca factorial: ");
     scanf("%d",&fac);
 
-    printf("Valor del numero: %g\n", factorial(fac));
+    result = factorial(fac);
+    if (result == -1){
+      printf("Not defined yet, sorry\n");
+    }
+    else{
+      printf("Valor del numero: %g\n", result);
+    }
   }
   case 3:{
   }

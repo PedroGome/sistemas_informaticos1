@@ -32,11 +32,21 @@ double power(int bas, int exponent){
 double factorial(int);
 
 double factorial(int num){
-  int i;
   long result;
   result = num;
-  for(i=num;i<1;i--){
-    result *= result -1;
+  if (num == 0){
+    result = 1;
+  }
+  else{
+    if (num<0){
+      return -1;
+    }
+    else{
+      num--;
+      for(num = num;num>1;num--){
+        result *= num;
+      }
+    }
   }
   return result;
 }
