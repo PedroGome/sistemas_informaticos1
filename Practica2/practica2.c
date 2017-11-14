@@ -68,13 +68,13 @@ int main (){
         // Llamar a la función "ponerACeroBit"
         int n;
         int nPos;
-        printf("Introduzca el valor hexadecimal de 8 bits de el numero a cambiar: ");
-        scanf("%x",&n);
+        printf("Introduzca el valor decimal de 8 bits de el numero a cambiar: ");
+        scanf("%d",&n);
         printf("\n");
         printf("Introduzca el valor de la posicion del bit a cambiar a 0: ");
         scanf("%d",&nPos);
         nPos --;
-        printf("\nEl nuevo valor es 0x%X",ponerACeroBit(n,nPos));
+        printf("\nEl nuevo valor es %d",ponerACeroBit(n,nPos));
         printf("\n");
         break;
       }
