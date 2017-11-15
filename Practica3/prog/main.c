@@ -34,6 +34,20 @@ int main(){
     }
   }
   case 3:{
+    int A[9], divisa[9]={500,200,100,50,20,10,5,2,1};
+    int total=0;
+    printf("Introduzca numero a desglosar: ");
+    scanf("%d",&total);
+    desglosar(A,total);
+    for(int i=0;i<9;i++){
+      if (A[i] == 0){
+        continue;
+      }
+      else{
+        printf("%d de %d euros\n",A[i],divisa[i]);
+      }
+    }
+    printf("\n");
   }
   }
 }

@@ -43,7 +43,7 @@ double factorial(int num){
     }
     else{
       num--;
-      for(num = num;num>1;num--){
+      for( ;num>1;num--){
         result *= num;
       }
     }
@@ -54,8 +54,17 @@ double factorial(int num){
 
 /* Funcion desglosar */
 
-void desglosar(int*);
+void desglosar(int*, int);
 
-void desglosar(int *position){
+void desglosar(int *position, int total){
+  int DESGLOSE[9], divisa[9]={500,200,100,50,20,10,5,2,1}, inter;
+  inter = total;
 
+  for (int i=0;i<9;i++){
+    int result=total;
+    result = inter / divisa[i];
+    inter %= divisa[i];
+    DESGLOSE[i] = result;
+  }
+  memcpy(position,DESGLOSE,sizeof(DESGLOSE));
 }
