@@ -202,7 +202,7 @@ int menu() // definición de la función "menu"
 
 int desplazar(int n, int nPos){
   int nDesplazado;
-  nDesplazado = nPos + n;
+  nDesplazado = nPos >> n;
   return nDesplazado;
 }
 

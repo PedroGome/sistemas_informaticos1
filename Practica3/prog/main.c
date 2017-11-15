@@ -18,6 +18,7 @@ int main(){
     scanf("%d",&exponent);
 
     printf("Valor del numero: %g\n",power(base,exponent));
+    break;
   }
   case 2:{
     int fac=0;
@@ -32,6 +33,7 @@ int main(){
     else{
       printf("Valor del numero: %g\n", result);
     }
+    break;
   }
   case 3:{
     int A[9], divisa[9]={500,200,100,50,20,10,5,2,1};
@@ -49,6 +51,7 @@ int main(){
     }
     printf("\n");
   }
+    break;
   }
 }
 
