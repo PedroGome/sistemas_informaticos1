@@ -68,3 +68,48 @@ void desglosar(int *position, int total){
   }
   memcpy(position,DESGLOSE,sizeof(DESGLOSE));
 }
+
+/* Fin funcion desglosar */
+
+/* Funcion introducir numeros */
+
+int introducir(int*,int);
+
+int introducir(int *dir, int size){
+  int result[9];
+  if (size != sizeof(result)){
+    return -1;
+  }
+  else{
+    for ( ;size>=0;size--){
+      printf("Introduzca numero: ");
+      scanf("%d",&result[size]);
+    }
+    memcpy(dir,result,sizeof(result));
+    return 0;
+  }
+  return -2;
+}
+
+/* Fin funcion introducir numeros */
+
+/* Funcion ordenar insercion */
+
+void insercion(int *, int);
+
+void insercion(int *array, int lng){
+  int nums[9], aux=0;
+  memcpy(nums,array,lng);
+
+
+  for (int j=1;j<9;j++){
+    for (int i=1 ;i <= j;i++){
+      if (nums[j] > nums[j+i] ){
+        aux = nums[i];
+        nums[i] = nums[i+1];
+        nums[i+1] = aux;
+      }
+    }
+  }
+  memcpy(array,nums,sizeof(nums));
+}
