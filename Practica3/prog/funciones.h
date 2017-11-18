@@ -81,7 +81,7 @@ int introducir(int *dir, int size){
     return -1;
   }
   else{
-    for ( ;size>=0;size--){
+    for (size=sizeof(result)/sizeof(result[0]);size>=0;size--){
       printf("Introduzca numero: ");
       scanf("%d",&result[size]);
     }
@@ -113,3 +113,5 @@ void insercion(int *array, int lng){
   }
   memcpy(array,nums,sizeof(nums));
 }
+
+/* Fin funcion ordenar insercion */

@@ -50,13 +50,21 @@ int main(){
       }
     }
     printf("\n");
-  }
     break;
+  }
+  case 4:{
+    int A[9];
+    introducir(A,sizeof(A));
+    insercion(A,sizeof(A));
+    for(int i=0;i<9;i++){
+      printf("Valor de A[%d]: %d, ",i,A[i]);
+    }
+  }
   }
 }
 
 void menu(int *opt){
-  printf("Funciones:\n1\tExponente\n2\tFactorial\n3\tDesglosar\n");
+  printf("Funciones:\n1\tExponente\n2\tFactorial\n3\tDesglosar\n4\tOrden\n");
   printf("Introduzca funcion: ");
 
   scanf("%d",opt);
