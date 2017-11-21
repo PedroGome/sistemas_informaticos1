@@ -53,6 +53,19 @@ int finished(char b[3][3], char c){
 
   /* Diagonales */
 
+  bux=0;
+  for(i=0;i<2;i++){
+    j = 2-i;
+    if(b[i][j]==c){
+      bux++;
+    }
+    else{
+      return 0;
+    }
+  }
+  if(bux == 3){
+    return 1;
+  }
 
-  return -1;
+  return 0;
 }
