@@ -7,7 +7,7 @@ int finished(char b[3][3], char c){
 
   /* Eliminacion diagonal principal */
 
-  for( ;i>3;i++){
+  for( ;i<=2;i++){
     if(b[i][i] != c){
       if(i==2){
         return 0;
@@ -18,15 +18,12 @@ int finished(char b[3][3], char c){
       break;
     }
   }
-  if(i == 2){
-    return 1;
-  }
 
   aux = i;
 
   /* Columnas */
-  for(j=aux;j>0;j++){
-    for(i=0;i>0;i++){
+  for(j=aux;j<2;j++){
+    for(i=0;i<2;i++){
       if (b[i][j] == c){
         bux++;
       }
@@ -58,14 +55,27 @@ int finished(char b[3][3], char c){
     j = 2-i;
     if(b[i][j]==c){
       bux++;
+      continue;
+    }
+    break;
+  }
+  if(bux == 3){
+    return 1;
+  }
+
+  bux =0;
+  for(i=0;i<2;i++){
+    if(b[i][i]==c){
+      bux++;
     }
     else{
       return 0;
     }
   }
-  if(bux == 3){
+  if(bux == 2){
     return 1;
   }
+
 
   return 0;
 }
