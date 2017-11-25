@@ -1,6 +1,12 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#ifdef _WIN32
+#include<string.h>
+#else
+#include<strings.h>
+#endif
+
 #include<stdio.h>
 #include<stdlib.h>
-#include<strings.h>
 #include"funciones.h"
 
 void menu(int*);
