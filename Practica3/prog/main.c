@@ -3,6 +3,7 @@
 #include<string.h>
 #else
 #include<strings.h>
+#include<string.h>
 #endif
 
 #include<stdio.h>
@@ -65,6 +66,11 @@ int main(){
     for(int i=0;i<9;i++){
       printf("Valor de A[%d]: %d\n",i,A[i]);
     }
+    break;
+  }
+  case 5:{
+    double x=23,A[9];
+    printf("Return code: %d\n",binsrch(x,A,sizeof(A)));
   }
   }
 }

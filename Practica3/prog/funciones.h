@@ -1,3 +1,14 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#ifdef _WIN32
+#include<string.h>
+#else
+#include<strings.h>
+#include<string.h>
+#endif
+
+#include<stdio.h>
+#include<stdlib.h>
+
 /* Funcion exponente */
 double power(int, int);
 
@@ -98,7 +109,7 @@ int introducir(int *dir, int size){
 void insercion(int *, int);
 
 void insercion(int *array, int lng){
-  int nums[9], aux=0, less[9], more[9];
+  int nums[9], less[9];
   memcpy(nums,array,lng);
 
   nums[0]=34;
