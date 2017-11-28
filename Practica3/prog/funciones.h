@@ -84,17 +84,17 @@ void desglosar(int *position, int total){
 
 /* Funcion introducir numeros */
 
-int introducir(int*,int);
+double introducir(double*,int);
 
-int introducir(int *dir, int size){
-  int result[9];
+double introducir(double *dir, int size){
+  double result[9];
   if (size != sizeof(result)){
     return -1;
   }
   else{
     for (size=sizeof(result)/sizeof(result[0]);size>=0;size--){
       printf("Introduzca numero: ");
-      scanf("%d",&result[size]);
+      scanf("%lf", &result[size]);
     }
     memcpy(dir,result,sizeof(result));
     return 0;
@@ -106,10 +106,10 @@ int introducir(int *dir, int size){
 
 /* Funcion ordenar insercion */
 
-void insercion(int *, int);
+void insercion(double *, int);
 
-void insercion(int *array, int lng){
-  int nums[9], less[9];
+void insercion(double *array, int lng){
+  double nums[9], less[9];
   memcpy(nums,array,lng);
 
   nums[0]=34;
@@ -125,18 +125,31 @@ void insercion(int *array, int lng){
   less[0]=nums[0];
 
   for(int a=0;a<9;a++){
+
     if(less[a] < nums[a]){
       less[a+1] = nums[a];
     }
+
     else{
       if(less[a] == nums[a]){
         less[a+1] = nums[a];
       }
+
+      /* Si el numero en la posicion a del array less es mayor, */
+      /* que el numero en a del array nums, desplazamos nums */
+      /* hasta la posicion correcta */
+
       else{
-        int b=a;
-        for( ;a>0;a--){
+
+        int b = a;
+
+        for( ; a>0 ; a-- ){
           if(less[a] > nums[b]){
-            for(int c=b;c>0;c--){
+            for(int c=b;c>=0;c--){
+              if(less[c] < nums[b]){
+
+                break;
+              }
               less[c+1]=less[c];
             }
             less[a] = nums[b];
@@ -158,24 +171,10 @@ int binsrch(double n, double *list, int sizl){
 
   double A[9];
   int i=4;
-  /************************
 
-El contenido de A es para depuracion
-
-   ***********************/
-  A[0]=-111.1;
-  A[1]=-3;
-  A[2]=4;
-  A[3]=8;
-  A[4]=11.1;
-  A[5]=11.9;
-  A[6]=200;
-  A[7]=200.2;
-  A[8]=411;
-
-  /* introducir(A,sizeof(A)); */
-  /* memcpy(A,list,sizl); */
-  /* insercion(A,sizeof(A)); */
+  introducir(A,sizeof(A));
+  memcpy(A,list,sizl);
+  insercion(A,sizeof(A));
 
   if (A[8] >= n && A[0] <= n){
     int min=0,max=1;

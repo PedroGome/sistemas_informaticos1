@@ -60,11 +60,11 @@ int main(){
     break;
   }
   case 4:{
-    int A[9];
+    double A[9];
     /* introducir(A,sizeof(A)); */
     insercion(A,sizeof(A));
     for(int i=0;i<9;i++){
-      printf("Valor de A[%d]: %d\n",i,A[i]);
+      printf("Valor de A[%d]: %g\n",i,A[i]);
     }
     break;
   }
