@@ -70,13 +70,22 @@ int main(){
   }
   case 5:{
     double x=23,A[9];
-    printf("Return code: %d\n",binsrch(x,A,sizeof(A)));
+    int ret;
+    printf("Introduzca numero a buscar: ");
+    scanf("%lf",&x);
+    ret = binsrch(x,A,sizeof(A));
+    if(ret == 0){
+      printf("Encontrado!!!\n");
+    }
+    if(ret == 1){
+      printf("No encontrado :'(\n");
+    }
   }
   }
 }
 
 void menu(int *opt){
-  printf("Funciones:\n1\tExponente\n2\tFactorial\n3\tDesglosar\n4\tOrden\n");
+  printf("Funciones:\n1\tExponente\n2\tFactorial\n3\tDesglosar\n4\tOrden\n5\tBusqueda binaria\n");
   printf("Introduzca funcion: ");
 
   scanf("%d",opt);

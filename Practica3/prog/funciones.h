@@ -156,41 +156,51 @@ int binsrch(double n, double *, int);
 
 int binsrch(double n, double *list, int sizl){
 
-  int A[9],i=1,x=1;
+  double A[9];
+  int i=4;
+  /************************
 
-  A[0]=34;
-  A[1]=3;
+El contenido de A es para depuracion
+
+   ***********************/
+  A[0]=-111.1;
+  A[1]=-3;
   A[2]=4;
-  A[3]=98;
-  A[4]=1;
-  A[5]=11;
-  A[6]=2;
-  A[7]=23;
-  A[8]=-1;
+  A[3]=8;
+  A[4]=11.1;
+  A[5]=11.9;
+  A[6]=200;
+  A[7]=200.2;
+  A[8]=411;
 
   /* introducir(A,sizeof(A)); */
-  memcpy(A,list,sizl);
+  /* memcpy(A,list,sizl); */
   /* insercion(A,sizeof(A)); */
 
-  if (A[8] < n && A[0] > n){
+  if (A[8] >= n && A[0] <= n){
     int min=0,max=1;
-    while(x != 0){
-      if(A[i]<n){
-        max=i;
+
+    while(1)
+      {
+        if(A[i] > n){
+          max = i;
+          i = max - (max-min)/2;
+        }
+        if(A[i] < n){
+          min = i;
+          i = min + (max-min)/2;
+        }
+        if(A[i] == n){
+          return 0;
+        }
+        if((max%min) == 0){
+          if(A[max] == n) return 0;
+          if(A[min] == n) return 0;
+          return 1;
+        }
       }
-      if(A[i]>n){
-        min=i;
-      }
-      if(max == min && max != n){
-        return -1;
-      }
-      if(A[i] == n){
-        return 0;
-      }
-      i = (max-min)/2;
-    }
   }
-  return 1;
+  return -1;
 }
 
 /* Fin funcion binsrch */
