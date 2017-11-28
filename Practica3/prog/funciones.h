@@ -9,8 +9,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-/* Funcion exponente */
 double power(int, int);
+double factorial(int);
+void desglosar(int*, int);
+double introducir(double*,int);
+void insercion(double *, int);
+int binsrch(double n, double *, int, int, int);
+
+/* Funcion exponente */
 
 double power(int bas, int exponent){
   double total=0, base=bas;
@@ -40,7 +46,6 @@ double power(int bas, int exponent){
 /* Fin funcion exponente */
 
 /* Funcion factorial */
-double factorial(int);
 
 double factorial(int num){
   long result;
@@ -65,8 +70,6 @@ double factorial(int num){
 
 /* Funcion desglosar */
 
-void desglosar(int*, int);
-
 void desglosar(int *position, int total){
   int DESGLOSE[9], divisa[9]={500,200,100,50,20,10,5,2,1}, inter;
   inter = total;
@@ -83,8 +86,6 @@ void desglosar(int *position, int total){
 /* Fin funcion desglosar */
 
 /* Funcion introducir numeros */
-
-double introducir(double*,int);
 
 double introducir(double *dir, int size){
   double result[9];
@@ -105,8 +106,6 @@ double introducir(double *dir, int size){
 /* Fin funcion introducir numeros */
 
 /* Funcion ordenar insercion */
-
-void insercion(double *, int);
 
 void insercion(double *array, int lng){
   double nums[9], less[9];
@@ -140,22 +139,11 @@ void insercion(double *array, int lng){
       /* hasta la posicion correcta */
 
       else{
-
-        int b = a;
-
-        for( ; a>0 ; a-- ){
-          if(less[a] > nums[b]){
-            for(int c=b;c>=0;c--){
-              if(less[c] < nums[b]){
-
-                break;
-              }
-              less[c+1]=less[c];
-            }
-            less[a] = nums[b];
-            break;
-          }
+        int x=binsrch(nums[a], less, sizeof(less),0,a),z=a;
+        for(;z>x;z--){
+          less[z+1] = less[z];
         }
+        less[z]=nums[a];
       }
     }
   }
@@ -165,18 +153,17 @@ void insercion(double *array, int lng){
 
 /* Funcion busqueda binaria */
 
-int binsrch(double n, double *, int);
-
-int binsrch(double n, double *list, int sizl){
+int binsrch(double n, double *list, int sizl, int mini, int maxi){
 
   double A[9];
   int i=4;
+  i=(maxi-mini)/2;
 
   introducir(A,sizeof(A));
   memcpy(A,list,sizl);
   insercion(A,sizeof(A));
 
-  if (A[8] >= n && A[0] <= n){
+  if (A[maxi] >= n && A[mini] <= n){
     int min=0,max=1;
 
     while(1)
@@ -190,16 +177,16 @@ int binsrch(double n, double *list, int sizl){
           i = min + (max-min)/2;
         }
         if(A[i] == n){
-          return 0;
+          return i;
         }
         if((max-min) == 1){
-          if(A[max] == n) return 0;
-          if(A[min] == n) return 0;
-          return 1;
+          if(A[max] == n) return max;
+          if(A[min] == n) return min;
+          return min;
         }
       }
   }
-  return -1;
+  return -2;
 }
 
 /* Fin funcion binsrch */

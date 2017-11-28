@@ -73,7 +73,7 @@ int main(){
     int ret;
     printf("Introduzca numero a buscar: ");
     scanf("%lf",&x);
-    ret = binsrch(x,A,sizeof(A));
+    ret = binsrch(x,A,sizeof(A),0,8);
     if(ret == 0){
       printf("Encontrado!!!\n");
     }
