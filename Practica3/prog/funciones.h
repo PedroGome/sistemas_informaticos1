@@ -193,7 +193,7 @@ El contenido de A es para depuracion
         if(A[i] == n){
           return 0;
         }
-        if((max%min) == 0){
+        if((max-min) == 1){
           if(A[max] == n) return 0;
           if(A[min] == n) return 0;
           return 1;
