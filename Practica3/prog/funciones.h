@@ -123,15 +123,15 @@ void insercion(double *array, int lng){
 
   less[0]=nums[0];
 
-  for(int a=0;a<9;a++){
+  for(int a=1;a<9;a++){
 
-    if(less[a] < nums[a]){
-      less[a+1] = nums[a];
+    if(less[a-1] < nums[a]){
+      less[a] = nums[a];
     }
 
     else{
-      if(less[a] == nums[a]){
-        less[a+1] = nums[a];
+      if(less[a-1] == nums[a]){
+        less[a] = nums[a];
       }
 
       /* Si el numero en la posicion a del array less es mayor, */
@@ -139,11 +139,11 @@ void insercion(double *array, int lng){
       /* hasta la posicion correcta */
 
       else{
-        int x=binsrch(nums[a], less, sizeof(less),0,a),z=a;
-        for(;z>x;z--){
+        int x = binsrch(nums[a], less, sizeof(less),0,a-1), z=a-1;
+        for( ; z>x ; z--){
           less[z+1] = less[z];
         }
-        less[z]=nums[a];
+        less[x+1]=nums[a];
       }
     }
   }
@@ -158,10 +158,7 @@ int binsrch(double n, double *list, int sizl, int mini, int maxi){
   double A[9];
   int i=4;
   i=(maxi-mini)/2;
-
-  introducir(A,sizeof(A));
   memcpy(A,list,sizl);
-  insercion(A,sizeof(A));
 
   if (A[maxi] >= n && A[mini] <= n){
     int min=0,max=1;
@@ -186,7 +183,7 @@ int binsrch(double n, double *list, int sizl, int mini, int maxi){
         }
       }
   }
-  return -2;
+  return -0;
 }
 
 /* Fin funcion binsrch */
