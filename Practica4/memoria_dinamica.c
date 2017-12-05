@@ -24,6 +24,8 @@ int main(){
 
   rdalumv1(clase, 3);
 
+  showALs(clase, 3);
+
   return 0;
 }
 
