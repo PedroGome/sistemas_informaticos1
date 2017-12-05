@@ -16,7 +16,8 @@ void leeAlv2(s*);
 void rdalumv1(s clase[],int numx);
 void rdalumv2(s clase[],int numx);
 
-void showAL();
+void showAL(s info);
+int showALs(s clase[], int numr);
 
 int main(){
   s clase[100];
@@ -68,4 +69,15 @@ void rdalumv2(s clase[],int numx){
     leeAlv2(&clase[i]);
 }
 
-void showAL();
+void showAL(s info){
+  printf("Nombre: %s\n",info.nom);
+  printf("Num matricula: %d\n",info.num);
+}
+
+int showALs(s clase[], int numx){
+  int i;
+
+  for(i=0; i<numx; i++)
+    showAL(clase[i]);
+  return i;
+}
