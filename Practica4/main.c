@@ -24,6 +24,7 @@ int main () {
 
 	/* AÑADA AQUI EL CÓDIGO DE LA FUNCIÓN MAIN*/
 
-
+  /* Ahora solo hay que anyadir las llamadas a funciones y tal */
+  /* No se si funciona */
 
 }
