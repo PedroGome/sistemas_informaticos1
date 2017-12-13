@@ -7,7 +7,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "funcs.h"
+#include "../funcs.h"
 
 #define MAX_PAL 100
 #define MAX_CAD 20
