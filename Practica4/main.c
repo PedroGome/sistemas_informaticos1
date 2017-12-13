@@ -7,7 +7,6 @@
 #include<stdlib.h>
 #include<string.h>
 #include "diccionario.h"
-#include "funcs.h"
 
 typedef struct{
   char ingles[MAX_CAD];
@@ -27,4 +26,25 @@ int main () {
   /* Ahora solo hay que anyadir las llamadas a funciones y tal */
   /* No se si funciona */
 
+  do{
+    opcion = menu();
+
+    switch (opcion){
+    case 1:{
+      num_pal = anyadir_palabra(Diccionario,num_pal);
+      continue;
+    }
+    case 2:{
+      traducir_palabra(Diccionario,num_pal);
+      continue;
+    }
+    case 3:{
+      mostrar_diccionario(Diccionario,num_pal);
+      continue;
+    }
+    case 4:{
+      return 0;
+    }
+    }
+  } while(1);
 }
