@@ -26,20 +26,22 @@ void mostrar_diccionario (tPalabra Dicc[], int num);
 int anyadir_palabra (tPalabra *Dicc, int num){
   if (num >= MAX_PAL){
     printf("Diccionario lleno\n");
+
+    pause();
+
     return num;
   }
-
-  tPalabra dicc[MAX_PAL];
-  memcpy(dicc,Dicc,sizeof(dicc));
 
   printf("Introducir espanyol: ");
   LeeCadena(Dicc[num+1].espanyol, MAX_CAD);
   printf("Se ha introducido: %s",Dicc[num+1].espanyol);
+
   printf("\nIntroducir ingles: ");
   LeeCadena(Dicc[num+1].ingles, MAX_CAD);
   printf("Se ha introducido: %s",Dicc[num+1].ingles);
 
-  memcpy(Dicc,dicc,sizeof(dicc));
+  pause();
+
   return num+1;
 }
 
@@ -50,6 +52,8 @@ void traducir_palabra (tPalabra Dicc[], int num){
   for(int i=0; i<= num; i++)
     if (!strcmp(palabradedios, Dicc[i].espanyol))
       printf("Traduccion de %s es %s", palabradedios, Dicc[i].ingles);;
+
+  pause();
 }
 
 void mostrar_diccionario (tPalabra Dicc[], int num){
@@ -57,8 +61,8 @@ void mostrar_diccionario (tPalabra Dicc[], int num){
   printf("\t--------\t------\n");
   printf("\n");
 
-  pause();
-
   for (int i=0; i<=num; i++)
     printf("\t%s\t%s\n",Dicc[i].espanyol,Dicc[i].ingles);
+
+  pause();
 }
