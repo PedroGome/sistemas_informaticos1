@@ -43,9 +43,17 @@ void traducir_palabra (tPalabra Dicc[], int num){
   char palabradedios[MAX_CAD];
   LeeCadena(palabradedios, MAX_CAD);
 
-  for(int i=0; i<= num; i++){
+  for(int i=0; i<= num; i++)
     if (!strcmp(palabradedios, Dicc[i].espanyol))
-      printf("Traduccion de %s es %s", palabradedios, Dicc[i].ingles);
-
-  }
+      printf("Traduccion de %s es %s", palabradedios, Dicc[i].ingles);;
 }
+
+void mostrar_diccionario (tPalabra Dicc[], int num){
+  printf("\tEspanyol\tIngles\n");
+  printf("\t--------\t------\n");
+  printf("\n");
+
+  for (int i=0; i<=num; i++)
+    printf("\t%s\t%s\n",Dicc[i].espanyol,Dicc[i].ingles);
+}
+ 
