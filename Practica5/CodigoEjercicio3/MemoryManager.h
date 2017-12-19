@@ -113,34 +113,34 @@ void * operator new (std::size_t, const std::nothrow_t &);
 void * operator new[] (std::size_t, const std::nothrow_t &);
 
 #define new     ( MemoryManager::Private::setContext           \
-                  (__FILE__,__FUNCTION__,__LINE__), false ) ?  \
+                  (__FILE__,__func__,__LINE__), false ) ?  \
                 0 : new
 
 #define delete  ( MemoryManager::Private::setContext           \
-                  (__FILE__,__FUNCTION__,__LINE__), false ) ?  \
+                  (__FILE__,__func__,__LINE__), false ) ?  \
                 MemoryManager::Private::setContext("","",0) :  \
                 delete
 
 #define malloc(sz)                                             \
                 MemoryManager::Private::allocate               \
-                (__FILE__,__FUNCTION__,__LINE__,               \
+                (__FILE__,__func__,__LINE__,               \
                  MemoryManager::Private::MALLOC_ALLOCATION,    \
                  (sz))
 
 #define	calloc(num,sz)                                         \
                 MemoryManager::Private::allocate               \
-                (__FILE__,__FUNCTION__,__LINE__,               \
+                (__FILE__,__func__,__LINE__,               \
                  MemoryManager::Private::CALLOC_ALLOCATION,    \
                  (num)*(sz))
 
 #define realloc(ptr,sz)                                        \
                 MemoryManager::Private::reallocate             \
-                (__FILE__,__FUNCTION__,__LINE__,               \
+                (__FILE__,__func__,__LINE__,               \
                  (sz), (ptr))
 
 #define free(ptr)                                              \
                 MemoryManager::Private::deallocate             \
-                (__FILE__,__FUNCTION__,__LINE__,               \
+                (__FILE__,__func__,__LINE__,               \
                  MemoryManager::Private::FREE_DEALLOCATION,    \
                  (ptr),IGNORE_FREE_NULL_FLAG)
 
@@ -150,19 +150,19 @@ void * operator new[] (std::size_t, const std::nothrow_t &);
 #include <stdlib.h>
 
 #define malloc(sz)      MemoryManager_malloc                   \
-                        (__FILE__,__FUNCTION__,__LINE__,       \
+                        (__FILE__,__func__,__LINE__,       \
                          (sz))
 
 #define	calloc(num,sz)  MemoryManager_calloc                   \
-                        (__FILE__,__FUNCTION__,__LINE__,       \
+                        (__FILE__,__func__,__LINE__,       \
                          (num)*(sz))
 
 #define realloc(ptr,sz) MemoryManager_realloc                  \
-                        (__FILE__,__FUNCTION__,__LINE__,       \
+                        (__FILE__,__func__,__LINE__,       \
                          (sz),(ptr))
 
 #define free(ptr)       MemoryManager_free                     \
-                        (__FILE__,__FUNCTION__,__LINE__,       \
+                        (__FILE__,__func__,__LINE__,       \
                          (ptr),IGNORE_FREE_NULL_FLAG)
 
 #ifndef C_GATEWAY

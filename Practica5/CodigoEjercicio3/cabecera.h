@@ -6,7 +6,7 @@
 
 typedef enum
 {
-  blanco, amarillo, naranja, rosa, rojo, verde, azul, morado, marrón, negro
+  blanco, amarillo, naranja, rosa, rojo, verde, azul, morado, marron, negro
 }tColor;
 
 typedef enum
