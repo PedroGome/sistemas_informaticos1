@@ -1,12 +1,6 @@
-#include"CodigoEjercicio3/cabecera.h"
-#include"funciones.h"
-
-#define MAX_CARAC 30
-
-typedef struct {
-  char nombre[MAX_CARAC];
-  float nota;
-} tficha;
+#include<stdio.h>
+#include<stdlib.h>
+#include"mem.h"
 
 int main(){
   int elementos, i, *p;
@@ -33,6 +27,6 @@ int main(){
 
   free(p);
   /* MemoryManager_DumpMemoryLeaks(); */
-  pause();
   return 0;
+
 }
