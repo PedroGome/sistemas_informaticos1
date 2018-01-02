@@ -182,7 +182,8 @@ void * MemoryManager_malloc (const char *file, const char *func,
                              unsigned int line, size_t size);
 
 void * MemoryManager_calloc (const char *file, const char *func,
-                             unsigned int line, size_t size);
+                             unsigned int line, size_t nmeb,
+                             size_t size);
 
 void * MemoryManager_realloc (const char *file, const char *func,
                               unsigned int line, size_t size,

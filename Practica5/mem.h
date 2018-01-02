@@ -1,38 +1,65 @@
 #include<stdlib.h>
+#include<string.h>
 
-void ** ledger;
+typedef struct{
+  void          *pointer;
+  char          file[20];
+  char          function[20];
+  unsigned int  line;
+}ledger_entry;
+
+ledger_entry *ledger;
+
+void record(const char *file, const char *func, unsigned int line,
+            void *allocated)
+{
+  int i;
+
+  i = 1 + sizeof(ledger)/sizeof(ledger_entry);
+
+  allocated = malloc(sizeof(ledger)+sizeof(ledger_entry));
+  ledger = malloc(sizeof(ledger)+sizeof(void*));
+
+  ledger[i].pointer = allocated;
+  strcpy(ledger[i].file, file);
+  strcpy(ledger[i].function, func);
+  ledger[i].line = line;
+}
 
 void* MemoryManager_malloc(const char *file, const char *func,
-                           unsigned int line, size_t size){
-  void * allocated;
-  int point;
-
-  point = sizeof(ledger)/sizeof(void*);
+                           unsigned int line, size_t size)
+{
+  void *allocated;
 
   allocated = malloc(size);
-  ledger = malloc(sizeof(ledger)+sizeof(void*));
-  ledger[point+1] = allocated;
+  record(file, func, line, allocated);
 
   return allocated;
 }
 
 void * MemoryManager_calloc (const char *file, const char *func,
-                             unsigned int line, size_t size){
-  void * allocated;
-  int point;
+                             unsigned int line, size_t nmeb,
+                             size_t size)
+{
+  void *allocated;
 
-  point = sizeof(ledger)/sizeof(void*);
-
-  allocated = calloc(sizeof(ledger)/sizeof(void*),);
-  ledger = malloc(sizeof(ledger)+sizeof(void*));
-  ledger[point+1] = allocated;
+  allocated = calloc(nmeb,size);
+  record(file, func, line, allocated);
 
   return allocated;
 }
 
 void * MemoryManager_realloc (const char *file, const char *func,
                               unsigned int line, size_t size,
-                              void* block);
+                              void* block)
+{
+  void *allocated;
+
+  allocated = realloc(block, size);
+  record(file, func, line, allocated);
+
+  return allocated;
+}
 
 void MemoryManager_free (const char *file, const char *func,
                          unsigned int line, void* block,
