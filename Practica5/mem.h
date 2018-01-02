@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include<string.h>
+#include<stdio.h>
 
 typedef struct{
   void          *pointer;
@@ -63,7 +64,15 @@ void * MemoryManager_realloc (const char *file, const char *func,
 
 void MemoryManager_free (const char *file, const char *func,
                          unsigned int line, void* block,
-                         int ignore_free_null_flag);
+                         int ignore_free_null_flag)
+{
+  free(block);
 
-void MemoryManager_DumpMemoryLeaks (void);
+  printf("I am way too tired to implement this function");
+}
+
+void MemoryManager_DumpMemoryLeaks (void)
+{
+  printf("I am way too tired to implement this function");
+}
 
