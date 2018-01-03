@@ -155,7 +155,7 @@ void * operator new[] (std::size_t, const std::nothrow_t &);
 
 #define	calloc(num,sz)  MemoryManager_calloc                   \
                         (__FILE__,__FUNCTION__,__LINE__,       \
-                         (num)*(sz))
+                         (num),(sz))
 
 #define realloc(ptr,sz) MemoryManager_realloc                  \
                         (__FILE__,__FUNCTION__,__LINE__,       \

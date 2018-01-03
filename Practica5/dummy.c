@@ -1,14 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include"mem.h"
+#include"MemoryManager.h"
 
 int main(){
-  int elementos, i, *p;
+  int size, elementos, i, *p;
 
   printf("\nIntroduzca el numero de elementos: ");
   scanf("%d", &elementos);
 
-  p = (int *) malloc(elementos*sizeof(int));
+  size = elementos * sizeof(int);
+
+  p = (int *) malloc(size);
   if (p==NULL){
     printf("Error al asignar memoria");
     return -1;
@@ -26,7 +28,6 @@ int main(){
   printf("\n\n");
 
   free(p);
-  /* MemoryManager_DumpMemoryLeaks(); */
+  MemoryManager_DumpMemoryLeaks();
   return 0;
-
 }
