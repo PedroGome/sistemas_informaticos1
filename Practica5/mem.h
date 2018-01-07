@@ -99,6 +99,11 @@ void MemoryManager_free (const char *file, const char *func,
   memcpy(&ledger[x-2], intermediate, size);
   ledger = realloc(ledger, sizeof(ledger_entry) * (ledgerSize()-1));
 
+  free(&file);
+  free(&func);
+  free(&line);
+  free(&ignore_free_null_flag);
+
   free(block);
   free(intermediate);
 }
