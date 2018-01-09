@@ -43,7 +43,7 @@ void record(const char *file, const char *func, unsigned int line,
 void* MemoryManager_malloc(const char *file, const char *func,
                            unsigned int line, size_t size)
 {
-  void *allocated;
+  void *allocated=0x0;
 
   allocated = malloc(size);
   record(file, func, line, allocated);

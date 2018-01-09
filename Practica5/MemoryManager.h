@@ -1,3 +1,5 @@
+#include"mem.h"
+
 // ----------------------------------------------------------------
 // Written by:  Manuel Peinado Gallego
 //              Departamento de Automática, Universidad de Alcalá
@@ -202,5 +204,3 @@ void MemoryManager_DumpMemoryLeaks (void);
 #endif // C_GATEWAY
 
 #endif  // MPG_MEMORY_MANAGER_H
-
-#include"mem.h"
