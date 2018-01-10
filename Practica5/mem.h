@@ -79,8 +79,9 @@ void MemoryManager_free (const char *file, const char *func,
                          unsigned int line, void* block,
                          int ignore_free_null_flag)
 {
-  unsigned int      size, sz, x;
-  ledger_entry    *intermediate;
+  unsigned int      size, sz, x, nsize;
+
+  free(block);
 
   sz = ledgerSize();
 
@@ -88,24 +89,20 @@ void MemoryManager_free (const char *file, const char *func,
     if(ledger[x].pointer == block)
       break;
 
-  x += 2;
-  sz -= x;
+  x++;
+
+  if(x == sz) {
+    printf("Puntero no encontrado");
+    return;}
+
+  sz -= 1+x;
 
   size = sizeof(ledger_entry) * sz;
+  nsize = ledgerSize();
+  nsize = sizeof(ledger_entry) * (nsize-1);
 
-  intermediate = (ledger_entry*) malloc(size);
-  memcpy(intermediate, &ledger[x-1], size);
-
-  memcpy(&ledger[x-2], intermediate, size);
-  ledger = realloc(ledger, sizeof(ledger_entry) * (ledgerSize()-1));
-
-  free(&file);
-  free(&func);
-  free(&line);
-  free(&ignore_free_null_flag);
-
-  free(block);
-  free(intermediate);
+  memmove(&ledger[x], &ledger[x+1], size);
+  ledger = realloc(ledger, nsize);
 }
 
 void print(unsigned int i);
