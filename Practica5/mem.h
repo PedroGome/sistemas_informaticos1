@@ -32,7 +32,7 @@ void record(const char *file, const char *func, unsigned int line,
 
   i = ledgerSize();
 
-  ledger = realloc(ledger,sizeof(ledger)+sizeof(void*));
+  ledger = realloc(ledger,sizeof(ledger)+sizeof(ledger_entry));
 
   ledger[i].pointer = allocated;
   strcpy(ledger[i].file, file);
