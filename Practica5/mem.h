@@ -4,12 +4,12 @@
 
 typedef struct{
   void          *pointer;
-  char          file[20];
-  char          function[20];
+  char          *file;
+  char          *function;
   unsigned int  line;
 }ledger_entry;
 
-ledger_entry *ledger;
+ledger_entry ** ledger;
 
 unsigned int ledgerSize(void);
 
@@ -20,7 +20,7 @@ void record(const char *file, const char *func, unsigned int line,
 unsigned int ledgerSize(void){
   unsigned int i;
 
-  i = sizeof(ledger)/sizeof(ledger_entry);
+  i = sizeof(ledger)/sizeof(ledger_entry*);
 
   return i;
 }
@@ -29,15 +29,20 @@ void record(const char *file, const char *func, unsigned int line,
             void *allocated)
 {
   int i;
+  ledger_entry *b;
 
+  b = (ledger_entry *) malloc(sizeof(ledger_entry));
   i = ledgerSize();
 
-  ledger = realloc(ledger,sizeof(ledger)+sizeof(ledger_entry));
+  ledger = realloc(ledger,sizeof(ledger)+sizeof(ledger_entry*));
 
-  ledger[i].pointer = allocated;
-  strcpy(ledger[i].file, file);
-  strcpy(ledger[i].function, func);
-  ledger[i].line = line;
+  ledger[i]->function = (char *) malloc(sizeof(func));
+  ledger[i]->file = (char *) malloc(sizeof(file));
+
+  ledger[i]->pointer = allocated;
+  strcpy(ledger[i]->file, file);
+  strcpy(ledger[i]->function, func);
+  ledger[i]->line = line;
 }
 
 void* MemoryManager_malloc(const char *file, const char *func,
@@ -86,7 +91,7 @@ void MemoryManager_free (const char *file, const char *func,
   sz = ledgerSize();
 
   for(x=0; x<sz; x++)
-    if(ledger[x].pointer == block)
+    if(ledger[x]->pointer == block)
       break;
 
   x++;
@@ -110,13 +115,13 @@ void print(unsigned int i);
 void print(unsigned int i)
 {
   printf("En la linea %i "
-         ,ledger[i].line);
+         ,ledger[i]->line);
   printf("De la funcion %s "
-         ,ledger[i].function);
+         ,ledger[i]->function);
   printf("Del archivo %s "
-         ,ledger[i].file);
+         ,ledger[i]->file);
   printf("no se liberado 0x%X\n"
-         ,(int)ledger[i].pointer);
+         ,(int)ledger[i]->pointer);
 }
 
 void MemoryManager_DumpMemoryLeaks (void)
