@@ -89,19 +89,17 @@ void MemoryManager_free (const char *file, const char *func,
 {
   unsigned int      size, sz, x, nsize;
 
-  free(block);
-
   sz = ledgerSize();
 
   for(x=0; x<sz; x++)
     if(ledger[x]->pointer == block)
       break;
 
-  x++;
-
   if(x == sz) {
     printf("Puntero no encontrado\n");
     return;}
+
+  free(block);
 
   sz -= 1+x;
 
@@ -119,9 +117,9 @@ void print(unsigned int i)
 {
   printf("En la linea %i "
          ,ledger[i]->line);
-  printf("De la funcion %s "
+  printf("de la funcion %s "
          ,ledger[i]->function);
-  printf("Del archivo %s "
+  printf("del archivo %s "
          ,ledger[i]->file);
   printf("no se liberado 0x%X\n"
          ,(int)ledger[i]->pointer);
@@ -133,8 +131,13 @@ void MemoryManager_DumpMemoryLeaks (void)
 
   sz = ledgerSize();
 
-  for(i=0;i<sz;i++)
-    print(i);
+  if (ledger == 0x0)
+    free(ledger);
 
-  free(ledger);
+  else
+    {
+      for(i=0;i<sz;i++)
+        print(i);
+      free(ledger);
+    }
 }

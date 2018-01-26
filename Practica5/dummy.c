@@ -27,7 +27,7 @@ int main(){
     printf("\tDato %d: %d",i+1, p[i]);
   printf("\n\n");
 
-  free(p);
+  /* free(p); */
   MemoryManager_DumpMemoryLeaks();
   return 0;
 }
