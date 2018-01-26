@@ -24,7 +24,7 @@ int main(){
 
   printf("\nLos datos almacenados en el array son: \n");
   for(i=0; i<elementos; i++)
-    printf("\tDato %d",p[i]);
+    printf("\tDato %d: %d",i+1, p[i]);
   printf("\n\n");
 
   free(p);

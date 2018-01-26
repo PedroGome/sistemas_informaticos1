@@ -32,9 +32,12 @@ void record(const char *file, const char *func, unsigned int line,
   ledger_entry *b;
 
   b = (ledger_entry *) malloc(sizeof(ledger_entry));
-  i = ledgerSize();
+  i = ledgerSize()-1;
+
+  /* printf("sizeof ledger: %d\n\n", (int)sizeof(ledger)); */
 
   ledger = realloc(ledger,sizeof(ledger)+sizeof(ledger_entry*));
+  ledger[i] = b;
 
   ledger[i]->function = (char *) malloc(sizeof(func));
   ledger[i]->file = (char *) malloc(sizeof(file));
@@ -97,7 +100,7 @@ void MemoryManager_free (const char *file, const char *func,
   x++;
 
   if(x == sz) {
-    printf("Puntero no encontrado");
+    printf("Puntero no encontrado\n");
     return;}
 
   sz -= 1+x;
